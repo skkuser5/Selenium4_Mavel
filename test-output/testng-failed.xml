@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Failed suite [MySuite]" parallel="tests">
+  <test thread-count="2" name="MyTest1(failed)" parallel="tests">
+    <groups>
+      <run>
+        <include name="sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testNG.PHPTests">
+        <methods>
+          <include name="verifyTitle"/>
+          <include name="verifyButtons"/>
+        </methods>
+      </class> <!-- testNG.PHPTests -->
+    </classes>
+  </test> <!-- MyTest1(failed) -->
+</suite> <!-- Failed suite [MySuite] -->

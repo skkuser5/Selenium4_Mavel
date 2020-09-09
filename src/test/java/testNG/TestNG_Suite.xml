@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="MySuite" thread-count="5" parallel="tests">
+  <test name="MyTest1">
+    <classes>
+      <class name="testNG.VerifyImage"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="MyTest2">
+    <classes>
+      <class name="testNG.WorkWithAlert"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
