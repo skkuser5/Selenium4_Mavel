@@ -21,7 +21,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class PHPTests {
 	WebDriver driver;
 	
-	@BeforeTest
+	@BeforeTest(alwaysRun = true)
 	public void beforeTest() {
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
@@ -41,7 +41,7 @@ public class PHPTests {
 		
 	}
 	
-	@Test(priority=1,groups = {"sanity"})
+	@Test(priority=1,groups = {"sanity","regression"})
 	public void verifyButtons() {
 		Assert.assertEquals(driver.findElement(By.xpath("//button[text()='Login']")).isDisplayed(), true,"verify Login button");	
 		//Assert.assertTrue(driver.findElement(By.xpath("//button[text()='Login']")).isDisplayed(), "verify Login button");
@@ -66,7 +66,7 @@ public class PHPTests {
 		Assert.assertEquals(text, "Invalid Email or Password","verify invalid email msg");
 	}
 	
-	@Test(priority=3,groups = {"regression"})
+	@Test(priority=3,groups = {"regression"},dependsOnGroups = {"sanity"})
 	public void verifyValidEmailMsg() {
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys("user@phptravels.com");

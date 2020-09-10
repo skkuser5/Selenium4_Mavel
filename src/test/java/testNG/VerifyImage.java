@@ -12,6 +12,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,7 +24,10 @@ import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -30,11 +35,30 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class VerifyImage {
 	WebDriver driver;
 	
-	@BeforeMethod
-	public void beforeMethod() {
-		System.out.println("beforeMethod");
-		WebDriverManager.firefoxdriver().setup();
-		driver = new FirefoxDriver();
+	@Parameters({"browserName"})
+	@BeforeTest
+	public void beforeTest(String browserName) {
+		
+		if(browserName.equals("chrome"))
+		{
+			System.out.println("beforeMethod");
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		}
+		else if (browserName.equals("firefox"))
+		{
+			System.out.println("beforeMethod");
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		}
+		else if (browserName.equals("edge"))
+		{
+			System.out.println("beforeMethod");
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+		}
+		
+		
 		driver.get("https://dhtmlx.com/docs/products/dhtmlxVault/");
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -79,8 +103,8 @@ public class VerifyImage {
 		
 	}
 	
-	@AfterMethod
-	public void afterMethod() {
+	@AfterTest
+	public void afterTest() {
 		System.out.println("after Method");
 		driver.close();
 	}
