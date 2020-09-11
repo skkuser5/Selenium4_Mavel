@@ -18,10 +18,10 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class PHPTests {
+public class TestNG_PHP {
 	WebDriver driver;
 	
-	@BeforeTest(alwaysRun = true)
+	@BeforeTest
 	public void beforeTest() {
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();

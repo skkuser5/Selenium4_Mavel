@@ -1,63 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="5" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="12" passed="12">
   <reporter-output>
   </reporter-output>
-  <suite name="MySuite" duration-ms="63644" started-at="2020-09-10T16:02:51 BST" finished-at="2020-09-10T16:03:54 BST">
+  <suite name="Default suite" duration-ms="37760" started-at="2020-09-11T16:08:08 BST" finished-at="2020-09-11T16:08:46 BST">
     <groups>
+      <group name="regression">
+        <method signature="PHPTests_Data_driven.verifyButtons()[pri:1, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyButtons" class="testNG.PHPTests_Data_driven"/>
+        <method signature="PHPTests_Data_driven.verifyInvalidEmailMsg(java.lang.String, java.lang.String)[pri:2, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyInvalidEmailMsg" class="testNG.PHPTests_Data_driven"/>
+        <method signature="TestNG_PHP.verifyButtons()[pri:1, instance:testNG.TestNG_PHP@76a3e297]" name="verifyButtons" class="testNG.TestNG_PHP"/>
+        <method signature="PHPTests_Data_driven.verifyValidEmailMsg()[pri:3, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyValidEmailMsg" class="testNG.PHPTests_Data_driven"/>
+        <method signature="PHPTests_Data_driven.verifyLinksAfterLogin()[pri:0, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyLinksAfterLogin" class="testNG.PHPTests_Data_driven"/>
+        <method signature="TestNG_PHP.verifyValidEmailMsg()[pri:3, instance:testNG.TestNG_PHP@76a3e297]" name="verifyValidEmailMsg" class="testNG.TestNG_PHP"/>
+        <method signature="TestNG_PHP.verifyLinksAfterLogin()[pri:0, instance:testNG.TestNG_PHP@76a3e297]" name="verifyLinksAfterLogin" class="testNG.TestNG_PHP"/>
+        <method signature="TestNG_PHP.verifyInvalidEmailMsg()[pri:2, instance:testNG.TestNG_PHP@76a3e297]" name="verifyInvalidEmailMsg" class="testNG.TestNG_PHP"/>
+      </group> <!-- regression -->
+      <group name="sanity">
+        <method signature="PHPTests_Data_driven.verifyButtons()[pri:1, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyButtons" class="testNG.PHPTests_Data_driven"/>
+        <method signature="PHPTests_Data_driven.verifyTitle()[pri:0, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyTitle" class="testNG.PHPTests_Data_driven"/>
+        <method signature="TestNG_PHP.verifyButtons()[pri:1, instance:testNG.TestNG_PHP@76a3e297]" name="verifyButtons" class="testNG.TestNG_PHP"/>
+        <method signature="TestNG_PHP.verifyTitle()[pri:0, instance:testNG.TestNG_PHP@76a3e297]" name="verifyTitle" class="testNG.TestNG_PHP"/>
+      </group> <!-- sanity -->
     </groups>
-    <test name="MyTest1" duration-ms="22755" started-at="2020-09-10T16:02:51 BST" finished-at="2020-09-10T16:03:14 BST">
-      <class name="testNG.VerifyImage">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:testNG.VerifyImage@371a67ec]" name="beforeTest" is-config="true" duration-ms="19372" started-at="2020-09-10T16:02:51 BST" finished-at="2020-09-10T16:03:10 BST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
+    <test name="Default test" duration-ms="37760" started-at="2020-09-11T16:08:08 BST" finished-at="2020-09-11T16:08:46 BST">
+      <class name="testNG.TestNG_PHP">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testNG.TestNG_PHP@76a3e297]" name="beforeTest" is-config="true" duration-ms="11316" started-at="2020-09-11T16:08:22 BST" finished-at="2020-09-11T16:08:34 BST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="verifyTitle()[pri:0, instance:testNG.VerifyImage@371a67ec]" name="verifyTitle" duration-ms="40" started-at="2020-09-10T16:03:10 BST" finished-at="2020-09-10T16:03:10 BST">
+        <test-method status="PASS" signature="verifyTitle()[pri:0, instance:testNG.TestNG_PHP@76a3e297]" name="verifyTitle" duration-ms="26" started-at="2020-09-11T16:08:34 BST" finished-at="2020-09-11T16:08:34 BST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyTitle -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:testNG.VerifyImage@371a67ec]" name="afterTest" is-config="true" duration-ms="3253" started-at="2020-09-10T16:03:10 BST" finished-at="2020-09-10T16:03:14 BST">
+        <test-method status="PASS" signature="verifyButtons()[pri:1, instance:testNG.TestNG_PHP@76a3e297]" name="verifyButtons" duration-ms="207" started-at="2020-09-11T16:08:34 BST" finished-at="2020-09-11T16:08:34 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyButtons -->
+        <test-method status="PASS" signature="verifyInvalidEmailMsg()[pri:2, instance:testNG.TestNG_PHP@76a3e297]" name="verifyInvalidEmailMsg" duration-ms="875" started-at="2020-09-11T16:08:34 BST" finished-at="2020-09-11T16:08:35 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidEmailMsg -->
+        <test-method status="PASS" signature="verifyValidEmailMsg()[pri:3, instance:testNG.TestNG_PHP@76a3e297]" name="verifyValidEmailMsg" duration-ms="2458" depends-on-groups="sanity" started-at="2020-09-11T16:08:37 BST" finished-at="2020-09-11T16:08:40 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidEmailMsg -->
+        <test-method status="PASS" signature="verifyLinksAfterLogin()[pri:0, instance:testNG.TestNG_PHP@76a3e297]" name="verifyLinksAfterLogin" duration-ms="92" started-at="2020-09-11T16:08:40 BST" depends-on-methods="testNG.TestNG_PHP.verifyValidEmailMsg" finished-at="2020-09-11T16:08:40 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLinksAfterLogin -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:testNG.TestNG_PHP@76a3e297]" name="afterTest" is-config="true" duration-ms="1592" started-at="2020-09-11T16:08:44 BST" finished-at="2020-09-11T16:08:46 BST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- testNG.VerifyImage -->
-    </test> <!-- MyTest1 -->
-    <test name="MyTest2" duration-ms="63644" started-at="2020-09-10T16:02:51 BST" finished-at="2020-09-10T16:03:54 BST">
-      <class name="testNG.WorkWithAlert">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:testNG.WorkWithAlert@553a3d88]" name="beforeTest" is-config="true" duration-ms="21831" started-at="2020-09-10T16:02:51 BST" finished-at="2020-09-10T16:03:13 BST">
+      </class> <!-- testNG.TestNG_PHP -->
+      <class name="testNG.PHPTests_Data_driven">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="beforeTest" is-config="true" duration-ms="14518" started-at="2020-09-11T16:08:08 BST" finished-at="2020-09-11T16:08:22 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="verifyTitle()[pri:0, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyTitle" duration-ms="16" started-at="2020-09-11T16:08:34 BST" finished-at="2020-09-11T16:08:34 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitle -->
+        <test-method status="PASS" signature="verifyButtons()[pri:1, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyButtons" duration-ms="291" started-at="2020-09-11T16:08:34 BST" finished-at="2020-09-11T16:08:34 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyButtons -->
+        <test-method status="PASS" signature="verifyInvalidEmailMsg(java.lang.String, java.lang.String)[pri:2, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyInvalidEmailMsg" duration-ms="944" started-at="2020-09-11T16:08:35 BST" data-provider="loginTest" finished-at="2020-09-11T16:08:36 BST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[edge]]>
+                <![CDATA[test@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test1234]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="verifyAlert()[pri:0, instance:testNG.WorkWithAlert@553a3d88]" name="verifyAlert" duration-ms="14450" started-at="2020-09-10T16:03:13 BST" finished-at="2020-09-10T16:03:27 BST">
+        </test-method> <!-- verifyInvalidEmailMsg -->
+        <test-method status="PASS" signature="verifyInvalidEmailMsg(java.lang.String, java.lang.String)[pri:2, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyInvalidEmailMsg" duration-ms="631" started-at="2020-09-11T16:08:36 BST" data-provider="loginTest" finished-at="2020-09-11T16:08:37 BST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[test11]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAlert -->
-        <test-method status="PASS" signature="verifyAlert()[pri:0, instance:testNG.WorkWithAlert@553a3d88]" name="verifyAlert" duration-ms="13499" started-at="2020-09-10T16:03:27 BST" finished-at="2020-09-10T16:03:41 BST">
+        </test-method> <!-- verifyInvalidEmailMsg -->
+        <test-method status="PASS" signature="verifyInvalidEmailMsg(java.lang.String, java.lang.String)[pri:2, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyInvalidEmailMsg" duration-ms="701" started-at="2020-09-11T16:08:37 BST" data-provider="loginTest" finished-at="2020-09-11T16:08:37 BST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test2@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAlert -->
-        <test-method status="PASS" signature="verifyAlert()[pri:0, instance:testNG.WorkWithAlert@553a3d88]" name="verifyAlert" duration-ms="13615" started-at="2020-09-10T16:03:41 BST" finished-at="2020-09-10T16:03:54 BST">
+        </test-method> <!-- verifyInvalidEmailMsg -->
+        <test-method status="PASS" signature="verifyValidEmailMsg()[pri:3, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyValidEmailMsg" duration-ms="1873" depends-on-groups="sanity" started-at="2020-09-11T16:08:40 BST" finished-at="2020-09-11T16:08:42 BST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAlert -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:testNG.WorkWithAlert@553a3d88]" name="afterTest" is-config="true" duration-ms="233" started-at="2020-09-10T16:03:54 BST" finished-at="2020-09-10T16:03:54 BST">
+        </test-method> <!-- verifyValidEmailMsg -->
+        <test-method status="PASS" signature="verifyLinksAfterLogin()[pri:0, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="verifyLinksAfterLogin" duration-ms="420" started-at="2020-09-11T16:08:42 BST" depends-on-methods="testNG.PHPTests_Data_driven.verifyValidEmailMsg" finished-at="2020-09-11T16:08:42 BST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLinksAfterLogin -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:testNG.PHPTests_Data_driven@4d3167f4]" name="afterTest" is-config="true" duration-ms="1588" started-at="2020-09-11T16:08:42 BST" finished-at="2020-09-11T16:08:44 BST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- testNG.WorkWithAlert -->
-    </test> <!-- MyTest2 -->
-  </suite> <!-- MySuite -->
+      </class> <!-- testNG.PHPTests_Data_driven -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
