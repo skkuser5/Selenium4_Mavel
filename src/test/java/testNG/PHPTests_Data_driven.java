@@ -24,6 +24,7 @@ public class PHPTests_Data_driven {
 	
 	@BeforeTest
 	public void beforeTest() {
+//beforeTest
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
 		driver.get("https://phptravels.net/login");
