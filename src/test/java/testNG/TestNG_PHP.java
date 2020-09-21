@@ -33,6 +33,7 @@ public class TestNG_PHP {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.titleContains("Login"));
 		
+		System.out.println("end of beforeTest");
 	}
 	
 	@Test(priority = 0,groups = {"sanity"})
