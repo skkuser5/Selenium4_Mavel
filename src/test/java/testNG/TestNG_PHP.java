@@ -10,22 +10,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import listeners.TestListener;
 
+@Listeners(TestListener.class)
 public class TestNG_PHP {
 	WebDriver driver;
 	
 	@BeforeTest
-	public void beforeTest() {
+	public void beforeTest(ITestContext context) {
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
 		driver.get("https://phptravels.net/login");
+		context.setAttribute("driver", driver);
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -38,7 +43,7 @@ public class TestNG_PHP {
 	
 	@Test(priority = 0,groups = {"sanity"})
 	public void verifyTitle() {
-		Assert.assertEquals(driver.getTitle(), "Login","verify Title");		
+		Assert.assertEquals(driver.getTitle(), "Login1","verify Title");		
 		
 	}
 	
