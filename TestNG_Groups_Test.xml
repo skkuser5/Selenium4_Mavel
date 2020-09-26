@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="MySuite" thread-count="2" parallel="tests">
+<listeners>
+<listener class-name="listeners.AnnotationTest"/>
+<listener class-name="listeners.MethodInvoke"/>
+</listeners>
+  <test name="MyTest1">
+  
+    <classes>
+      <class name="testNG.FirstTestNG"/>
+    </classes>
+  </test> <!-- Test -->
+ 
+</suite> <!-- Suite -->
