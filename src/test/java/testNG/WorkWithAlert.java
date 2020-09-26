@@ -1,5 +1,7 @@
 package testNG;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +11,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -25,13 +31,15 @@ public class WorkWithAlert {
 	WebDriver driver;
 	@Parameters({"browserName"})
 	@BeforeTest
-	public void beforeTest(String browserName) {
+	public void beforeTest(String browserName) throws MalformedURLException {
 		
 		if(browserName.equals("chrome"))
 		{
 			System.out.println("beforeMethod");
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			  DesiredCapabilities cap = new DesiredCapabilities();
+			  cap.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+			  //cap.setCapability(CapabilityType.brow, value);
+			  driver = new RemoteWebDriver(new URL("http://localhost:4444"), cap);
 		}
 		else if (browserName.equals("firefox"))
 		{
@@ -42,8 +50,10 @@ public class WorkWithAlert {
 		else if (browserName.equals("edge"))
 		{
 			System.out.println("beforeMethod");
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
+			  DesiredCapabilities cap = new DesiredCapabilities();
+			  cap.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE);
+			  //cap.setCapability(CapabilityType.brow, value);
+			  driver = new RemoteWebDriver(new URL("http://localhost:4444"), cap);
 		}
 		driver.get("https://dhtmlx.com/docs/products/dhtmlxVault/");
 		
@@ -55,7 +65,7 @@ public class WorkWithAlert {
 		
 	}
 	
-	@Test(invocationCount = 3)
+	@Test(invocationCount = 6)
 	public void verifyAlert() throws InterruptedException {
 		WebDriverManager.firefoxdriver().setup();
 		

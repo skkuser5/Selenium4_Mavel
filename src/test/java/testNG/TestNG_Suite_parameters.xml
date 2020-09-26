@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="MySuite" thread-count="5" parallel="tests">
   <test name="MyTest1">
-  <parameter name="browserName" value="firefox"></parameter>
+  <parameter name="browserName" value="chrome"></parameter>
   
     <classes>
       <class name="testNG.VerifyImage"/>

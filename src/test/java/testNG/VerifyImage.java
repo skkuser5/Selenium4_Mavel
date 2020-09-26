@@ -2,6 +2,8 @@ package testNG;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +17,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.FindFailed;
@@ -37,13 +43,17 @@ public class VerifyImage {
 	
 	@Parameters({"browserName"})
 	@BeforeTest
-	public void beforeTest(String browserName) {
+	public void beforeTest(String browserName) throws MalformedURLException {
 		
 		if(browserName.equals("chrome"))
 		{
 			System.out.println("beforeMethod");
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+		//	WebDriverManager.chromedriver().setup();
+			//driver = new ChromeDriver();
+			  DesiredCapabilities cap = new DesiredCapabilities();
+			  cap.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+			  //cap.setCapability(CapabilityType.brow, value);
+			  driver = new RemoteWebDriver(new URL("http://localhost:4444"), cap);
 		}
 		else if (browserName.equals("firefox"))
 		{
@@ -54,8 +64,12 @@ public class VerifyImage {
 		else if (browserName.equals("edge"))
 		{
 			System.out.println("beforeMethod");
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
+			//WebDriverManager.edgedriver().setup();
+			//driver = new EdgeDriver();
+			  DesiredCapabilities cap = new DesiredCapabilities();
+			  cap.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE);
+			  //cap.setCapability(CapabilityType.brow, value);
+			  driver = new RemoteWebDriver(new URL("http://localhost:4444"), cap);
 		}
 		
 		
@@ -71,7 +85,7 @@ public class VerifyImage {
 	
 	
 	
-	@Test(priority=0)
+	@Test(priority=0,invocationCount = 6)
 	public void verifyTitle() throws IOException {
 		
 		
