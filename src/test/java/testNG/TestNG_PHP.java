@@ -43,7 +43,12 @@ public class TestNG_PHP {
 	
 	@Test(priority = 0,groups = {"sanity"})
 	public void verifyTitle() {
+
 		Assert.assertEquals(driver.getTitle(), "Login1","verify Title");		
+
+		//this is to verifyTitle
+		Assert.assertEquals(driver.getTitle(), "Login","verify Title");		
+
 		
 	}
 	
