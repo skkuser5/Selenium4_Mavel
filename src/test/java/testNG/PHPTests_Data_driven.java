@@ -18,6 +18,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import util.ExcelXUtil;
 
 public class PHPTests_Data_driven {
 	WebDriver driver;
@@ -52,7 +53,25 @@ public class PHPTests_Data_driven {
 		
 	}
 	
-	@Test(priority=2,groups = {"regression"},dataProvider ="loginTest" )
+//	@Test(priority=2,groups = {"regression"},dataProvider ="loginTest" )
+//	public void verifyInvalidEmailMsg(String userName, String password) {
+//		driver.findElement(By.name("username")).clear();
+//		driver.findElement(By.name("username")).sendKeys(userName);
+//		driver.findElement(By.name("password")).clear();
+//		driver.findElement(By.name("password")).sendKeys(password);
+//		driver.findElement(By.xpath("//button[text()='Login']")).click();
+//		
+//		By element = By.xpath("//div[contains(@class,'alert')]");
+//		
+//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		wait.until(ExpectedConditions.presenceOfElementLocated(element));
+//		String text = driver.findElement(element).getText();
+//		
+//		Assert.assertEquals(text, "Invalid Email or Password","verify invalid email msg");
+//	}
+	
+	
+	@Test(priority=2,groups = {"regression"},dataProvider ="ExcelRead" )
 	public void verifyInvalidEmailMsg(String userName, String password) {
 		driver.findElement(By.name("username")).clear();
 		driver.findElement(By.name("username")).sendKeys(userName);
@@ -69,7 +88,6 @@ public class PHPTests_Data_driven {
 		Assert.assertEquals(text, "Invalid Email or Password","verify invalid email msg");
 	}
 	
-	
 	@DataProvider(name="loginTest")
 	public Object[][] dataProvider(){
 		
@@ -78,6 +96,32 @@ public class PHPTests_Data_driven {
 		return array;
 		
 		
+	}
+	
+	@DataProvider(name="ExcelRead")
+	public String[][] excelDataProvider(){
+		String[][] temp= null;
+		String projPath = System.getProperty("user.dir");
+		String xlsFilePath = projPath+"\\src\\test\\resources\\testData\\UsersData.xlsx";
+		ExcelXUtil excel = new ExcelXUtil(xlsFilePath);
+		
+		int rowCount=excel.getRowCount("Sheet1");
+		int colCount = excel.getColumnCount("Sheet1", 1);
+		temp= new String[rowCount-1][colCount];
+		int k=0;
+		for(int i=1;i<rowCount;i++)
+		{
+			for (int j=0;j<colCount;j++)
+			{
+				temp[k][j] = excel.getCellValue("Sheet1", i, j);
+			}
+			k++;
+		}
+		
+		
+		
+		
+		return temp;
 	}
 	
 	@Test(priority=3,groups = {"regression"},dependsOnGroups = {"sanity"})
